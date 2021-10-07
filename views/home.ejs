@@ -1,0 +1,35 @@
+<%- include("./partials/header") %>
+<%- include("./partials/navbar") %>
+<link rel="stylesheet" href="/css/home.css">
+<table>
+    <% for( let d of data) { %>
+        <tr>
+           <td>&nbsp&nbsp&nbsp&nbspName </td><td>:&nbsp&nbsp&nbsp&nbsp<%= d.name %> </td>
+        </tr>
+        <tr>
+            <td>&nbsp&nbsp&nbsp&nbspEmail </td><td>:&nbsp&nbsp&nbsp&nbsp<%= d.email %> </td>
+        </tr>
+        <tr>
+            <td>&nbsp&nbsp&nbsp&nbspPhone </td><td>:&nbsp&nbsp&nbsp&nbsp<%= d.phone %> </td>
+        </tr>
+        <tr>
+            <td>&nbsp&nbsp&nbsp&nbspCheck In Time </td><td>:&nbsp&nbsp&nbsp&nbsp<%=d.entryTime%></td>
+        </tr>
+        <tr>
+            <td>&nbsp&nbsp&nbsp&nbspCheck Out Time </td><td>:&nbsp&nbsp&nbsp&nbsp<%=d.exitTime%></td>
+        </tr>
+          <tr>
+            <%if(d.status){%>
+            <form action="/home/exit/<%= d._id  %>?_method=PATCH" method="POST">
+                <td> <button>Check Out</button></td>
+            </form>
+            <% } %> 
+           
+          <form action="/home/<%=d._id%>?_method=DELETE" method="POST">
+           <td><button>Delete Entry</button>
+            </td>
+           </form>
+        </tr>
+    <% } %>
+</table>
+<%- include("./partials/footer") %>

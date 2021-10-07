@@ -1,0 +1,36 @@
+<%- include("./partials/header") %>
+<%- include("./partials/navbar") %>
+<link rel="stylesheet" href="/css/enter.css">  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<section>
+        <form action="/home" method="POST">
+            <fieldset>
+               <div>
+                   <label for="name"><b>Name</b></label>
+                   <br>
+                   <input class="inputs" type="text" name="name" id="name" required>
+               </div>
+               <div>
+                   <label for="email"><b>E-mail</b></label>
+                   <br>
+                   <input class="inputs" type="email" name="email" id="email" required>
+               </div>
+               <div>
+                   <label for="phone"><b>Contact Number</b></label>
+                   <br>
+                   <input class="inputs" type="number" name="phone" id="phone" required>
+                </div>
+                <div>
+                    <%let date=new Date()%>
+                    <%let time=`${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`%>
+                    <label for="time"><b>Entry Time</b></label>
+                    <br>
+                    <input class="inputs" type="text" name="entryTime" value=<%=time%>>
+                </div>
+                <button>ENTER</button>
+            </fieldset>
+        </form>
+</section>
+<%- include("./partials/footer") %>
