@@ -20,8 +20,8 @@ app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 // seedDB();
 app.get('/', (req, res)=>{
-    res.send("checking")
-    // res.redirect('/main');
+    // res.send("checking")
+    res.redirect('/main');
 }) 
 app.get('/main', async (req,res)=>{
     res.render('main');
