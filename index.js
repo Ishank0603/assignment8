@@ -80,6 +80,6 @@ app.delete('/home/:id',async(req,res)=>{
     res.redirect('/home');
 });
 const port=process.env.PORT||2323;
-app.listen(port,(req,res)=>{
+app.listen(port,()=>{
     console.log("Server at 2323");
 });
