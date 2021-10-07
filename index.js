@@ -19,6 +19,9 @@ app.set('views',path.join(__dirname,'/views'));
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 // seedDB();
+app.get('/', (req, res)=>{
+    res.redirect('/main');
+}) 
 app.get('/main', async (req,res)=>{
     res.render('main');
 })
