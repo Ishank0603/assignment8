@@ -157,9 +157,9 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10px;
 }
 #hero .btn-get-started {
-  background: #03C4EB;
-  border: 2px solid #03C4EB;
-  color: #fff;
+  background: teal;
+  border: 2px solid teal;
+  color: whitesmoke;
 }
 #hero .btn-get-started:hover {
   background: none;
@@ -171,8 +171,8 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 #hero .btn-services:hover {
-  background: #03C4EB;
-  border: 2px solid #03C4EB;
+  background: teal;
+  border: 2px solid teal;
 }
 
 /*--------------------------------------------------------------
