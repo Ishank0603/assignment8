@@ -1,35 +1,38 @@
 <%- include("./partials/header") %>
 <%- include("./partials/navbar") %>
 <link rel="stylesheet" href="/css/home.css">
-<table>
-    <% for( let d of data) { %>
-        <tr>
-           <td>&nbsp&nbsp&nbsp&nbspName </td><td>:&nbsp&nbsp&nbsp&nbsp<%= d.name %> </td>
-        </tr>
-        <tr>
-            <td>&nbsp&nbsp&nbsp&nbspEmail </td><td>:&nbsp&nbsp&nbsp&nbsp<%= d.email %> </td>
-        </tr>
-        <tr>
-            <td>&nbsp&nbsp&nbsp&nbspPhone </td><td>:&nbsp&nbsp&nbsp&nbsp<%= d.phone %> </td>
-        </tr>
-        <tr>
-            <td>&nbsp&nbsp&nbsp&nbspCheck In Time </td><td>:&nbsp&nbsp&nbsp&nbsp<%=d.entryTime%></td>
-        </tr>
-        <tr>
-            <td>&nbsp&nbsp&nbsp&nbspCheck Out Time </td><td>:&nbsp&nbsp&nbsp&nbsp<%=d.exitTime%></td>
-        </tr>
-          <tr>
-            <%if(d.status){%>
-            <form action="/home/exit/<%= d._id  %>?_method=PATCH" method="POST">
-                <td> <button>Check Out</button></td>
-            </form>
-            <% } %> 
-           
-          <form action="/home/<%=d._id%>?_method=DELETE" method="POST">
-           <td><button>Delete Entry</button>
-            </td>
-           </form>
-        </tr>
-    <% } %>
-</table>
+<div class="flex">
+<% for( let d of data) { %>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= d.name %> </h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= d.email %> </h6>
+      <p class="card-text">
+          <table>
+            <tr>
+                <td>Phone </td><td>: <%= d.phone %> </td>
+            </tr>
+            <tr>
+                <td>Check In Time </td><td>: <%=d.entryTime%></td>
+            </tr>
+            <tr>
+                <td>Check Out Time </td><td>: <%=d.exitTime%></td>
+            </tr>
+          </table>
+      </p>
+      <%if(d.status){%>
+        <form action="/home/exit/<%= d._id  %>?_method=PATCH" method="POST">
+             <button>Check Out</button>
+        </form>
+        <% } %> 
+        <% if(d.status===false) {%>
+            <button style="background-color: #0f4c5c;" disabled>Check Out</button>
+        <% } %>      
+      <form action="/home/<%=d._id%>?_method=DELETE" method="POST">
+        <button>Delete Entry</button>
+        </form>
+      </div>
+</div>
+<% } %>
+</div>
 <%- include("./partials/footer") %>

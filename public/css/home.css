@@ -1,19 +1,23 @@
 body{
     background-color: #FAF9F6;
 }
-table{
-    font-family: 'Roboto', sans-serif;
-    font-size: 19px;
-    border-radius: 10px;
+.flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.card{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-left: 47px;
+    margin-right: 40px;
+    border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    background-color: white;
-    margin-top: 5%;
-    width: 46vw;
-    margin-left:25vw;
-    margin-right: 29vw;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
 }
 button{
-    width:300px;
+    width:200px;
     height:45px;
     border:none;
     border-radius: 20px;
